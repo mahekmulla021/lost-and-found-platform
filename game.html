@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find the Lost Item - Lost & Found</title>
+  <style>
+    body {
+      background-color: #fff8f2;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #b34590;
+      font-size: 2.7em;
+      margin-bottom: 10px;
+    }
+    .clue {
+      font-size: 1.3em;
+      color: #333;
+      margin-bottom: 25px;
+    }
+    .room {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .item {
+      width: 120px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border-radius: 10px;
+    }
+    .item:hover {
+      transform: scale(1.15);
+    }
+    .feedback {
+      margin-top: 35px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #2e7d32;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 15px;
+      background-color: #e6ffe6;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Find the Lost Item</h1>
+  <p class="clue">Clue: “I carry your books and notes every day.”</p>
+
+  <div class="room">
+    <img src="https://i.ibb.co/QY1YDY9/bag.png" alt="Bag" class="item correct">
+    <img src="https://i.ibb.co/yPp57bc/pen.png" alt="Pen" class="item wrong">
+    <img src="https://i.ibb.co/ZKXMb3H/book.png" alt="Book" class="item wrong">
+  </div>
+
+  <div class="feedback" id="feedback"></div>
+
+  <script>
+    const feedback = document.getElementById("feedback");
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        items.forEach(i => i.style.border = "none");
+        if (item.classList.contains("correct")) {
+          feedback.style.display = "block";
+          feedback.style.color = "#2e7d32";
+          feedback.innerHTML = "✅ Correct! This is how our Lost & Found platform helps users find their items quickly using clues and smart reporting — better than waiting or going to the police.";
+          item.style.border = "4px solid green";
+        } else {
+          feedback.style.display = "block";
+          feedback.style.color = "#b71c1c";
+          feedback.innerHTML = "❌ Oops! Try again.";
+          item.style.border = "4px solid red";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

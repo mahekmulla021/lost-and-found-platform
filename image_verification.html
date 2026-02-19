@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Verification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .image-box {
+            width: 400px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 90%;
+        }
+
+        h2 {
+            color: #2e7d32;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        #verifyBtn, #contactBtn {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        #verifyBtn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #verifyBtn:hover {
+            background-color: #388e3c;
+        }
+
+        #contactBtn {
+            display: none;
+            background-color: #ff9800;
+            color: white;
+        }
+
+        #contactBtn:hover {
+            background-color: #e68a00;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #424242;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #212121;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="back-button" onclick="window.location.href='verify.html'">⬅ Back</button>
+
+    <h2>📷 Image Verification</h2>
+
+    <div class="image-box">
+        <p><b>Upload an image of your item for verification.</b></p>
+        <input type="file" id="imageUpload">
+        <button id="verifyBtn" onclick="verifyImage()">Verify</button>
+        <button id="contactBtn" onclick="viewFounder()">View Founder Contact</button>
+    </div>
+
+    <script>
+        function verifyImage() {
+            let imageInput = document.getElementById("imageUpload");
+            if (imageInput.files.length > 0) {
+                alert("✅ Image verified successfully!");
+                document.getElementById("contactBtn").style.display = "block";
+            } else {
+                alert("⚠️ Please upload an image for verification.");
+            }
+        }
+
+        function viewFounder() {
+            window.location.href = "contact.html";
+        }
+    </script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Verify Lost Item</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background: rgba(240, 255, 240, 0.8);
+            padding: 20px;
+            position: relative; /* Keep relative for back button */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .verification-box {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 90%;
+        }
+
+        h2 {
+            color: #2e7d32;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 18px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #388e3c;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #212121;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="back-button" onclick="window.location.href='view-items.html'">⬅ Back</button>
+
+    <div class="container">
+        <h2>🔒 Security Verification</h2>
+
+        <div class="verification-box">
+            <p><b>Answer the security questions:</b></p>
+            <input type="text" id="color" placeholder="Item Color">
+            <input type="text" id="brand" placeholder="Item Brand">
+            <input type="text" id="location" placeholder="Last Seen Location">
+            <input type="text" id="verificationCode" placeholder="Enter Verification Code">
+            <button onclick="goToNext()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function goToNext() {
+            window.location.href = "image_verification.html";
+        }
+    </script>
+
+</body>
+</html>
